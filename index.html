@@ -1,0 +1,78 @@
+<!DOCTYPE html>  <html lang="en">    <head>    
+<meta charset="UTF-8"/>    
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
+<title>DROGON MODS S1X</title>    
+<style>    
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Orbitron:wght@600&display=swap');    
+body{margin:0;font-family:'Baloo 2',cursive;background:#0b1220;color:#fff;overflow-x:hidden;min-height:100vh;text-align:center;}    
+.hidden{display:none}    
+.bubbles{position:fixed;width:100%;height:100%;top:0;left:0;overflow:hidden;z-index:-1;}    
+.bubbles span{position:absolute;bottom:-150px;width:40px;height:40px;background:rgba(0,150,255,0.15);border-radius:50%;animation:rise 20s infinite ease-in;}    
+.bubbles span:nth-child(1){left:10%;animation-duration:18s;background:rgba(255,0,255,0.2);}     
+.bubbles span:nth-child(2){left:20%;animation-duration:22s;width:30px;height:30px;background:rgba(0,200,150,0.2);}     
+.bubbles span:nth-child(3){left:35%;animation-duration:15s;background:rgba(0,150,255,0.2);}     
+.bubbles span:nth-child(4){left:50%;animation-duration:25s;width:50px;height:50px;background:rgba(255,200,0,0.2);}     
+.bubbles span:nth-child(5){left:65%;animation-duration:17s;background:rgba(0,255,100,0.2);}     
+.bubbles span:nth-child(6){left:80%;animation-duration:20s;width:60px;height:60px;background:rgba(255,100,0,0.2);}     
+.bubbles span:nth-child(7){left:90%;animation-duration:19s;background:rgba(200,0,255,0.2);}     
+@keyframes rise{0%{transform:translateY(0) scale(1);opacity:0.5;}50%{opacity:1;}100%{transform:translateY(-110vh) scale(1.3);opacity:0;}}    
+.bubble-text{display:inline-block;animation:float 3s infinite ease-in-out;}    
+@keyframes float{0%{transform:translateY(0);}50%{transform:translateY(-8px);}100%{transform:translateY(0);}}    
+.container{padding:15px;}    
+.header-title{font-family:'Orbitron',sans-serif;font-size:6vw;margin-top:20px;font-weight:bold;color:#fff;text-shadow:0 0 15px #00bfff;overflow:hidden;white-space:nowrap;border-right:4px solid #00bfff;width:18ch;animation:typing 4s steps(18) infinite alternate, blink .7s infinite;}    
+@keyframes typing{from{width:0;}to{width:18ch;}}    
+@keyframes blink{50%{border-color:transparent;}}    
+.badges{margin-top:8px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}    
+.badge{padding:6px 10px;border-radius:999px;font-size:3.2vw;background:#f1f5f9;border:1px solid #e2e8f0;color:#111}    
+.dashboard{border-radius:12px;padding:15px;margin-top:15px;background:rgba(255,255,255,0.1);box-shadow:0 0 25px rgba(0,0,0,0.1);}     
+.dashboard .row{display:flex;justify-content:space-between;margin:6px 0;font-size:3.8vw;color:#fff;font-weight:600;}    
+.ball{width:25px;height:25px;border-radius:50%;font-size:1.0rem;font-weight:bold;line-height:25px;color:#fff;margin:auto;display:inline-block;margin-right:5px;}    
+.red{background:radial-gradient(circle,#ff4c4c,#a00000);}     
+.green{background:radial-gradient(circle,#44ff44,#007700);}     
+.purple{background:radial-gradient(circle,#b366ff,#6a0dad);}     
+.timer-box{font-size:5vw;font-weight:bold;letter-spacing:2px;color:#fff;font-family:'Orbitron',sans-serif;}    
+.prediction-section{padding:15px;border-radius:10px;margin-top:20px;background:rgba(255,255,255,0.1);box-shadow:0 0 20px rgba(0,0,0,0.15);}     
+.bigtext{font-size:8vw;font-weight:bold;text-shadow:0 0 20px #ff00e0,0 0 35px #00fff7;font-family:'Orbitron',sans-serif;}     
+.prediction-BIG{color:#ff2d2d;}     
+.prediction-SMALL{color:#2196f3;}     
+.prediction-history{margin-top:25px;}    
+.table-head,.table-row{display:grid;grid-template-columns:1.2fr 1.2fr 1fr 1fr;gap:12px;padding:12px 10px;border-bottom:1px solid #ccc;font-size:3.5vw;align-items:center;color:#fff}    
+.table-head{font-weight:bold;background:#333;}    
+.table-row{background:rgba(255,255,255,0.05);border-radius:8px;}    
+.table-row .ball{width:25px;height:25px;font-size:1rem;line-height:25px;}    
+.footer{margin-top:20px;font-size:3.5vw;color:#ddd;font-style:italic;animation:float 3s infinite ease-in-out;}    
+.sub{margin-bottom:6px;font-size:4vw;font-weight:600;color:#fff;}    
+</style>    
+</head>    
+<body>  <!-- Bubble Background -->  <div class="bubbles"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>  <div class="container">    
+  <div class="header-title">ㅤㅤㅤ DROGON MODS S1X ㅤ</div>    
+  <div class="badges">    
+    <div class="badge">DROGON</div>    
+    <div class="badge">LIVE</div>    
+    <div class="badge">PREDICTION</div>    
+  </div>    <div class="dashboard bubble-text">    
+    <div class="row"><span>Periodㅤ-ㅤ</span> <span id="period">- -</span></div>    
+    <div class="row"><span>Result Numbers - </span>    
+      <span id="resultBall"class="ball"> -</span>    
+      <span id="extraBall"class="ball"> -</span>    
+    </div>    
+    <div class="row"><span>Time Remainingㅤ-ㅤ</span> <span id="timer" class="timer-box">--</span></div>    
+  </div>    <div class="prediction-section bubble-text">    
+    <div class="sub">UNDER 2 - 3 LEVEL WIN PREDICTION</div>    
+    <div id="prediction" class="bigtext">--</div>    
+    <div class="sub">RULLS - <span id="conf">--</span></div>    
+  </div>    <div class="prediction-history bubble-text">    
+    <div class="table-head"><div>Period</div><div>Predicted</div><div>Numbers</div><div>Rulls</div></div>    
+    <div id="historyBox"></div>    
+  </div>    <div class="footer bubble-text" id="log">Real-time trend algorithm active ✅</div>    
+</div>  <script>    
+let hist=[],numHist=[],currentPeriod="";    
+function getIST(){const n=new Date();const u=n.getTime()+n.getTimezoneOffset()*60000;return new Date(u+5.5*3600000);}    
+function getPeriod(){const ist=getIST();const ymd=ist.getFullYear()+String(ist.getMonth()+1).padStart(2,'0')+String(ist.getDate()).padStart(2,'0');const minutes=ist.getHours()*60+ist.getMinutes();return ymd+"1000"+(10001+minutes-330);}    
+function getNumbers(pred){let pool=pred==='BIG'?[5,6,7,8,9]:[0,1,2,3,4];let chosen=[];while(chosen.length<2){let x=pool[Math.floor(Math.random()*pool.length)];if(!chosen.includes(x))chosen.push(x);}return chosen;}    
+function getBallClass(n){if([2,4,6,8].includes(n))return'red';if([1,3,5,7,9].includes(n))return'green';return'purple';}    
+function addToHistory(p,pr,nums,conf){const row=document.createElement('div');row.className='table-row bubble-text';row.innerHTML=`<div>${p}</div><div>${pr}</div><div><div class="ball ${getBallClass(nums[0])}">${nums[0]}</div><div class="ball ${getBallClass(nums[1])}">${nums[1]}</div></div><div>${conf}</div>`;const box=document.getElementById('historyBox');box.prepend(row);if(box.children.length>12)box.removeChild(box.lastChild);}    
+function update(){const now=getIST();const sec=now.getSeconds();document.getElementById('timer').textContent=(60-sec).toString().padStart(2,'0')+"s";const period=getPeriod();document.getElementById('period').textContent=period;if(sec===0&&period!==currentPeriod){currentPeriod=period;const pred=Math.random()<0.5?'BIG':'SMALL';const conf='HIGH';const nums=getNumbers(pred);document.getElementById('prediction').textContent=pred;document.getElementById('prediction').className=`bigtext bubble-text prediction-${pred}`;document.getElementById('conf').textContent=conf;document.getElementById('resultBall').textContent=nums[0];document.getElementById('extraBall').textContent=nums[1];document.getElementById('resultBall').className=`ball ${getBallClass(nums[0])}`;document.getElementById('extraBall').className=`ball ${getBallClass(nums[1])}`;addToHistory(period,pred,nums,conf);hist.unshift(pred);numHist.unshift(nums);if(hist.length>100)hist.pop();if(numHist.length>100)numHist.pop();document.getElementById('log').textContent=`✅ Prediction: ${pred} (${conf}) → Numbers ${nums.join(', ')}`;}}    
+setInterval(update,1000);    
+</script>  </body>    
+</html>     
